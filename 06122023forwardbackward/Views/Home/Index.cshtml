@@ -1,0 +1,88 @@
+﻿@model EmployeeLists
+
+
+@*<style>
+    table,tr,td,th{
+        width:40px;
+        border-collapse:collapse;
+        border:1px solid;
+    }
+
+</style>*@
+
+<div>
+    <div>
+        <form asp-action="Table1" asp-controller="Home" method="post">
+            
+        <table class="table">
+            <tr>
+                <th>Select</th>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Salary</th>
+            </tr>
+            @foreach (var item in Model.EmployeeList1)
+            {
+                <tr>
+                   <td> <input type="checkbox" class="Table1" name="employeeId" value="@item.Id"/></td>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Salary</td>
+                </tr>
+            }
+
+
+        </table>
+
+        <br />
+        <input type="submit" value="Forward" id="update" />
+        <br/>
+
+        </form>
+
+    </div>
+
+
+    <h3>@TempData["error"]</h3>
+
+    <div>
+        <form action="Home/Table2" method="post">
+
+            <br />
+            <input type="submit" value="Backward" id="update" />
+            <br />
+            <table class="table">
+            <tr>
+                <th>Select</th>
+
+                <th>Id</th>
+                <th>Name</th>
+                <th>Salary</th>
+            </tr>
+            @foreach (var item in Model.EmployeeList2)
+            {
+                <tr>
+                    <td> <input type="checkbox" class="Table1" name="employeeId" value="@item.Id" /></td>
+
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Salary</td>
+                </tr>
+            }
+
+        </table>
+
+
+        </form>
+    </div>
+
+
+</div>
+
+
+   
+            
+
+
+
+
